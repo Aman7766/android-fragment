@@ -1,6 +1,7 @@
 package com.amandeep.fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -24,25 +25,28 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             ReplaceFragmet();
+                Fragment1 f=new Fragment1();
+             ReplaceFragmet(f);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReplaceFragmet();
+                Fragment2 f=new Fragment2();
+                ReplaceFragmet(f);
 
             }
         });
 
     }
 
-    public void ReplaceFragmet()
+    public void ReplaceFragmet(Fragment fragment)
     {
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace();
+        fragmentTransaction.replace(R.id.frml,fragment);
+        fragmentTransaction.commit();
     }
 
 
